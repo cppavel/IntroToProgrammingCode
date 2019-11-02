@@ -73,9 +73,10 @@ public class TwelveDaysOfChristmas
 	
 	public static void main(String[] args)
 	{		
-		for(int NumberOfVerse = 1;NumberOfVerse<=12;NumberOfVerse++)
+		for(int numberOfVerse = 1;numberOfVerse<=12;numberOfVerse++)
 		{
-			System.out.println(GenerateVerse(NumberOfVerse));
+			System.out.println(GenerateVerse(numberOfVerse));
 		}
 	}
+
 }
