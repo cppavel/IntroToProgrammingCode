@@ -1,0 +1,78 @@
+public class TwelveDaysOfChristmas 
+{
+
+	
+	public static final String COMMON_START_PART  = "On the <verseNumber> day of Christmas\r\n" + 
+			"my true love sent to me:\r\n";
+	public static final String FIRST_GIFT = "<begin> Partridge in a Pear Tree.\n";
+	public static final String SECOND_GIFT = "2 Turtle Doves\n";
+	public static final String THIRD_GIFT = "3 French Hens,\n";
+	public static final String FOURTH_GIFT = "4 Calling Birds,\n";
+	public static final String FIFTH_GIFT = "5 Gold Rings,\n";
+	public static final String SIXTH_GIFT = "6 Geese a Laying,\n";
+	public static final String SEVENTH_GIFT = "7 Swans a Swimming,\n";
+	public static final String EIGHTH_GIFT = "8 Maids a Milking,\n";
+	public static final String NINTH_GIFT = "9 Ladies Dancing,\n";
+	public static final String TENTH_GIFT = "10 Lords a Leaping,\n";
+	public static final String ELEVENTH_GIFT = "11 Pipers Piping,\n";
+	public static final String TWELFTH_GIFT = "12 Drummers Drumming,\n";
+	
+	public static String GenerateVerse(int verseNumber)
+	{
+		
+		String startPart  = COMMON_START_PART; 
+		String verses = "";
+		String endPart = getChristmasGift(1);
+		if(verseNumber == 1)
+		{
+			endPart = endPart.replace("<begin>", "a");
+		}
+		else
+		{
+			endPart = endPart.replace("<begin>", "and a");
+		}
+		startPart = startPart.replace("<verseNumber>", getOrdinalString(verseNumber));
+		for(int currentVerse = verseNumber;currentVerse>=2;currentVerse--)
+		{
+			verses = verses +getChristmasGift(currentVerse);
+		}
+		return startPart+verses+endPart;
+		
+	}	
+	
+	public static String getOrdinalString(int number)
+	{
+		return number==1?"first":number==2?"second":number==3?"third":number==4?"fourth":number==5?"fifth":number==6?"sixth":number==7?"seventh":
+			number==8?"eighth":number==9?"ninth":number==10?"tenth":number==11?"eleventh":number==12?"twelfth":"Error";
+	}
+	
+	public static String getChristmasGift(int numberOfVerse)
+	{
+		switch (numberOfVerse)
+		{
+		case 1: return FIRST_GIFT;
+		case 2: return SECOND_GIFT;
+		case 3: return THIRD_GIFT;
+		case 4: return FOURTH_GIFT;
+		case 5: return FIFTH_GIFT;
+		case 6: return SIXTH_GIFT;
+		case 7: return SEVENTH_GIFT;
+		case 8: return EIGHTH_GIFT;
+		case 9: return NINTH_GIFT;
+		case 10: return TENTH_GIFT;
+		case 11: return ELEVENTH_GIFT;
+		case 12: return TWELFTH_GIFT;
+		default: return "Error";
+		}
+	}
+
+	
+	public static void main(String[] args)
+	{		
+		for(int numberOfVerse = 1;numberOfVerse<=12;numberOfVerse++)
+		{
+			System.out.print(GenerateVerse(numberOfVerse));
+		}
+	}
+
+}
