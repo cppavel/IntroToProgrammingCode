@@ -1,9 +1,32 @@
+/* SELF ASSESSMENT
+ 1. Did I use easy-to-understand meaningful properly formatted, variable names and CONSTANTS?
+        Mark out of 10: 10
+        Comment: Yes, I did. All the constants' and variables' names give a good explanation of what they
+        stand for. All of them are formatted correctly. 
+ 2. Did I implement the getVerse function correctly and in a manner that can be understood (5 marks for function definition, 5 marks for function call and 15 marks for function implementation)?
+       Mark out of 25: 25
+        Comment:  Yes, I did the function is implemented in the exact same way as it is stated in the task and works correctly.
+ 3. Did I implement the getChristmasGift function correctly using a switch statement and in a manner that can be understood (5 marks for function definition, 5 marks for function call and 15 marks for function implementation)?
+       Mark out of 25: 25
+        Comment:  Yes, I did the function is implemented in the exact same way (using a switch statement) as it is stated in the task and works correctly.
+ 4. Did I implement the getOrdinalString function correctly using if or conditional operators and in a manner that can be understood (5 marks for function definition, 5 marks for function call and 15 marks for function implementation)?
+       Mark out of 25: 25
+        Comment:  Yes, I did the function is implemented in the exact same way (using a sequence of conditional operators) as it is stated in the task and works correctly.
+ 5. Does the program produce the output correctly?
+       Mark out of 10: 10
+        Comment:  Yes, it does. All the 12 verses of the song are printed correctly.
+ 6. How well did I complete this self-assessment?
+        Mark out of 5: 5
+        Comment: Self-assessment helped me to improve my code.
+ Total Mark out of 100 (Add all the previous marks): 100
+*/ 
+
 public class TwelveDaysOfChristmas 
 {
 
 	
 	public static final String COMMON_START_PART  = "On the <verseNumber> day of Christmas\r\n" + 
-			"my true love sent to me:\r\n";
+			"my true love sent to me:\n";
 	public static final String FIRST_GIFT = "<begin> Partridge in a Pear Tree.\n";
 	public static final String SECOND_GIFT = "2 Turtle Doves\n";
 	public static final String THIRD_GIFT = "3 French Hens,\n";
@@ -17,7 +40,7 @@ public class TwelveDaysOfChristmas
 	public static final String ELEVENTH_GIFT = "11 Pipers Piping,\n";
 	public static final String TWELFTH_GIFT = "12 Drummers Drumming,\n";
 	
-	public static String GenerateVerse(int verseNumber)
+	public static String getVerse(int verseNumber)
 	{
 		
 		String startPart  = COMMON_START_PART; 
@@ -42,8 +65,9 @@ public class TwelveDaysOfChristmas
 	
 	public static String getOrdinalString(int number)
 	{
-		return number==1?"first":number==2?"second":number==3?"third":number==4?"fourth":number==5?"fifth":number==6?"sixth":number==7?"seventh":
-			number==8?"eighth":number==9?"ninth":number==10?"tenth":number==11?"eleventh":number==12?"twelfth":"Error";
+		return number==1?"first":number==2?"second":number==3?"third":number==4?"fourth":
+					number==5?"fifth":number==6?"sixth":number==7?"seventh":number==8?"eighth":
+						number==9?"ninth":number==10?"tenth":number==11?"eleventh":"twelfth";
 	}
 	
 	public static String getChristmasGift(int numberOfVerse)
@@ -66,13 +90,11 @@ public class TwelveDaysOfChristmas
 		}
 	}
 
-	
 	public static void main(String[] args)
 	{		
 		for(int numberOfVerse = 1;numberOfVerse<=12;numberOfVerse++)
 		{
-			System.out.print(GenerateVerse(numberOfVerse));
+			System.out.print(getVerse(numberOfVerse));
 		}
 	}
-
 }
