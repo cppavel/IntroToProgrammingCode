@@ -25,7 +25,7 @@ public class TwelveDaysOfChristmas
 {
 
 	
-	public static final String COMMON_START_PART  = "On the <verseNumber> day of Christmas\r\n" + 
+	public static final String COMMON_START_PART  = "On the <verseNumber> day of Christmas\n" + 
 			"my true love sent to me:\n";
 	public static final String FIRST_GIFT = "<begin> Partridge in a Pear Tree.\n";
 	public static final String SECOND_GIFT = "2 Turtle Doves\n";
@@ -44,7 +44,14 @@ public class TwelveDaysOfChristmas
 	{
 		
 		String startPart  = COMMON_START_PART; 
-		String verses = "";
+		startPart = startPart.replace("<verseNumber>", getOrdinalString(verseNumber));
+		
+		String verse = "";
+		for(int currentGift = verseNumber;currentGift>=2;currentGift--)
+		{
+			verse = verse +getChristmasGift(currentGift);
+		}
+		
 		String endPart = getChristmasGift(1);
 		if(verseNumber == 1)
 		{
@@ -54,12 +61,8 @@ public class TwelveDaysOfChristmas
 		{
 			endPart = endPart.replace("<begin>", "and a");
 		}
-		startPart = startPart.replace("<verseNumber>", getOrdinalString(verseNumber));
-		for(int currentVerse = verseNumber;currentVerse>=2;currentVerse--)
-		{
-			verses = verses +getChristmasGift(currentVerse);
-		}
-		return startPart+verses+endPart;
+		
+		return startPart+verse+endPart;
 		
 	}	
 	
@@ -70,9 +73,9 @@ public class TwelveDaysOfChristmas
 						number==9?"ninth":number==10?"tenth":number==11?"eleventh":"twelfth";
 	}
 	
-	public static String getChristmasGift(int numberOfVerse)
+	public static String getChristmasGift(int numberOfGift)
 	{
-		switch (numberOfVerse)
+		switch (numberOfGift)
 		{
 		case 1: return FIRST_GIFT;
 		case 2: return SECOND_GIFT;
