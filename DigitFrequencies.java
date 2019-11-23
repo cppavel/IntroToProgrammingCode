@@ -1,28 +1,36 @@
 import java.util.Scanner;
 public class DigitFrequencies 
 {
-	
-	
-	
+
+
+
 	public static void countDigitFrequencies(int number, int[] frequencies)
 	{
 		if(frequencies!=null&&frequencies.length == 10)
 		{
-			while(number>0)
+			if(number!=0)
 			{
-				int currentDigit = number%10;
-				frequencies[currentDigit]++;
-				number = number / 10;
+
+				while(number>0)
+				{
+					int currentDigit = number%10;
+					frequencies[currentDigit]++;
+					number = number / 10;
+				}
+			}
+			else
+			{
+				frequencies[0]++;
 			}
 		}
 	}
-	
+
 	public static void printDigitFrequencies(int [] frequencies)
 	{
 		if(frequencies!=null&&frequencies.length == 10)
 		{
 			System.out.print("Digit frequencies: ");
-			
+
 			for(int index = 0;index<frequencies.length;index++)
 			{
 				if(frequencies[index]>0)
@@ -33,20 +41,20 @@ public class DigitFrequencies
 			System.out.println();
 		}
 	}
-	
+
 	public static void main(String[] args) 
 	{
 		int[] frequencies = new int[10];
-		
+
 		for(int index = 0; index < 10; index++)
 		{
 			frequencies[index] = 0;
 		}
-		
+
 		Scanner input  = new Scanner(System.in);
-		
+
 		boolean finish  = false;
-		
+
 		while(!finish)
 		{
 			System.out.print("Please enter the next number or exit, if you wish to finish ->");
@@ -55,10 +63,10 @@ public class DigitFrequencies
 				System.out.println("Please enter the next number or exit, if you wish to finish ->");
 				input.nextLine();
 			}
-			
+
 			if(input.hasNextInt())
 			{
-			
+
 				int currentNumber = input.nextInt();			
 				countDigitFrequencies(currentNumber,frequencies);
 				printDigitFrequencies(frequencies);
@@ -69,9 +77,9 @@ public class DigitFrequencies
 				finish  =  true;
 			}
 		}
-		
+
 		input.close();
-		
+
 
 	}
 
